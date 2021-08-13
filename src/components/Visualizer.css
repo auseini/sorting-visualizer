@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+.container {
+  margin-top: 50px;
+  font-family: "Open Sans", sans-serif;
+  width: 80%;
+  min-height: 40vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.bar {
+  min-width: 1%;
+  font-size: 0;
+  margin: 2px;
+  background: aqua;
+  min-height: 5%;
+}
