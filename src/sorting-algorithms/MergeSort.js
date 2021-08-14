@@ -1,5 +1,3 @@
-import { buildQueries } from "@testing-library/react";
-
 
 function mergeSort(array, left, right, animations){
     if(left >= right){
