@@ -13,22 +13,23 @@ function quickSort(array, low, high, animations){
 function partition(array, low, high, animations){
     let pivot = array[high];
 
-    //add animation, -1 as first dig to signify pivot color change
-    animations.push([-1, high, high]);
+    //add animation, -1 as third digit to signify pivot color change
+    animations.push([high, high, -1]);
 
     //keeps track of index
     let idx = low - 1;
 
-    for(let i = low; i <= high; i++){
+    for(let i = low; i < high; i++){
         //2 meangs go to new color
         animations.push([i, i, 2]);
         
-
         if(array[i] < pivot){
-            //brings elements lower than pivot, down 
+            //brings elements lower than pivot down array
             idx++;
             animations.push([idx, idx, 2])
+            
             swap(array, idx, i, animations); 
+            
             animations.push([idx, idx, 3])
         }
 
@@ -37,7 +38,7 @@ function partition(array, low, high, animations){
        
     }
     //change pivot color back
-    animations.push([high, -1, high]);
+    animations.push([high, high, -2]);
     //move pivot to its correct spot
     swap(array, idx + 1, high, animations);
     return (idx + 1);
@@ -49,7 +50,8 @@ function swap(array, i, j, animations){
     array[j] = temp;
 
     //1 means swap
-    animations.push([i, j, 1]);
+    animations.push([i, array[i], 1]);
+    animations.push([j, array[j], 1])
 }
 
 export default quickSort;

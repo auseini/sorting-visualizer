@@ -7,10 +7,9 @@ function bubbleSort(array, animations){
             animations.push([j, j+1]);
 
             if(array[j] > array[j+1]){
-                animations.push([j, j+1])
-
-                swap(array, j, j+1);
+                swap(array, j, j+1, animations);
             } else{
+                animations.push([-1, -1]);
                 animations.push([-1, -1]);
             }
 
@@ -19,11 +18,14 @@ function bubbleSort(array, animations){
     }
 }
 
-function swap(array, i, j){
+function swap(array, i, j, animations){
     let temp = array[i];
 
     array[i] = array[j];
     array[j] = temp;
+
+    animations.push([i, array[i]]);
+    animations.push([j, array[j]]);
 }
 
 export default bubbleSort;

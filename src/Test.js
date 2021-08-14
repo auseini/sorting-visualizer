@@ -37,7 +37,7 @@ function quickTest(array){
     let arr = [...array];
     
     quickSort(array, 0, array.length - 1, []);
-   
+   console.log("array " + array);
     arr.sort(function(a,b){return a - b});
     
     for(let i = 0; i < arr.length; i++){
@@ -54,6 +54,7 @@ function heapTest(array){
     heapSort(array, []);
    
     arr.sort(function(a,b){return a - b});
+    
     
     for(let i = 0; i < arr.length; i++){
         if(arr[i] !== array[i]){
